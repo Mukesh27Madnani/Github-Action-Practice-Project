@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get code
-        uses: actions/checkout@
+        uses: actions/checkout@v3
       - name: install dependencies
         run: npm ci
       - name: lint step
@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get code
-        uses: actions/checkout@
+        uses: actions/checkout@v3
       - name: install dependencies
         run: npm ci
       - name: lint step
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get code
-        uses: actions/checkout@
+        uses: actions/checkout@v3
       - name: install dependencies
         run: npm ci
       - name: lint step
