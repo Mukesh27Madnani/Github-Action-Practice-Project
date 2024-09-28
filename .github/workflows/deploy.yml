@@ -1,0 +1,39 @@
+name: deployment
+on:
+  push:
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        uses: actions/checkout@
+      - name: install dependencies
+        run: npm ci
+      - name: lint step
+        run: eslint --ext .jsx --fix src
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        uses: actions/checkout@
+      - name: install dependencies
+        run: npm ci
+      - name: lint step
+        run: vitest run
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        uses: actions/checkout@
+      - name: install dependencies
+        run: npm ci
+      - name: lint step
+        run: vite build
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: echo "deployment done !!!!"
